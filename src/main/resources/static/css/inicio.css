@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.7), transparent 34%),
+        linear-gradient(180deg, #dbeafe 0%, #f8fafc 36%, #e2e8f0 100%);
+    background-size: cover;
+    background-position: center;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ajusta el ancho del header */
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    z-index: 1;
+/* Coloca el header en la parte superior */
+}
+
+.logo {
+    margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+}
+
+.logo h1 {
+    margin: 0; /* Elimina el margen del h1 dentro del logo */
+}
+
+nav ul {
+    list-style: none; /* Elimina los estilos de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    padding: 0; /* Elimina el relleno de la lista */
+    display: flex; /* Cambia el diseño de la lista a flexbox */
+}
+
+nav ul li {
+    margin-left: 20px; /* Ajusta el margen izquierdo de cada ítem de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Elimina la subrayado de los enlaces */
+    color: #fff; 
+    margin-right: 30px;/* Cambia el color de texto de los enlaces */
+}
+
+.container {
+    margin-top: 15%; /* Ajusta este valor según la altura de tu header */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-section,
+.instructions-section{
+    margin-top: 150px;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+input[type="text"],
+button {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+.support-section {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1; /* Asegura que la sección de soporte esté encima del contenido */
+}

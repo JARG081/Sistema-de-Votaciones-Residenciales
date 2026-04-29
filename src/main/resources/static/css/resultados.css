@@ -1,0 +1,137 @@
+/* styles.css */
+/* styles.css */
+body {
+    background-color: #bdb6b6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ajusta el ancho del header */
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    z-index: 1;/* Coloca el header en la parte superior */
+}
+
+.logo {
+    margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+}
+
+.logo h1 {
+    margin: 0; /* Elimina el margen del h1 dentro del logo */
+}
+
+nav ul {
+    list-style: none; /* Elimina los estilos de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    padding: 0; /* Elimina el relleno de la lista */
+    display: flex; /* Cambia el diseño de la lista a flexbox */
+}
+
+nav ul li {
+    margin-left: 20px; /* Ajusta el margen izquierdo de cada ítem de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Elimina la subrayado de los enlaces */
+    color: #fff; 
+    margin-right: 30px;/* Cambia el color de texto de los enlaces */
+}
+
+.contenedorPrincipal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#tituloEncuesta 
+{
+    margin-top:0;
+    text-align: center;
+    margin-top: 60px; /* Elimina el margen predeterminado */
+    font-size: 36px; /* Tamaño de fuente grande para un título principal */
+    color: #1a1919; /* Color del texto */
+    font-weight: bold; /* Centra horizontalmente el contenido */
+}
+
+#notas {
+    text-align: center;
+    background-color: #d3d0d0; /* Color de fondo para el section de notas */
+    padding: 20px;
+    margin: 80px auto; /* Margen superior e inferior de 80px, margen izquierdo y derecho automáticos */
+    border-radius: 15px; /* Agrega un poco de espacio alrededor del contenido */
+    width: 70%; /* Ancho del 50% del contenedor principal */
+}
+
+
+/* styles.css */
+#notas button {
+    margin-inline:4% ;
+    background-color: #007bff; /* Color de fondo para los botones */
+    color: #fff; /* Color del texto */
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Borde redondeado */
+    padding: 10px 10px; /* Espacio alrededor del texto */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+#notas button:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón sobre el botón */
+}
+#secciones{
+    display: flex;
+    margin-top: 15%; 
+}
+
+
+#resultado {
+    margin-top: 20px;
+    margin-left: 10%;
+    margin-right: 5%;/* Margen superior para separarlo del resto del contenido */
+    padding: 20px; /* Espacio interno para contenido */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: rgb(255, 255, 255); /* Color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 35%; /* Sombra */
+}
+#opciones{
+    margin-top: 20px;
+    margin-right: 10%;
+    margin-left: 5%; /* Margen superior para separarlo del resto del contenido */
+    padding: 20px; /* Espacio interno para contenido */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: rgb(255, 255, 255); /* Color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 35%;
+}
+#opciones h2 {
+    margin-bottom: 0px; /* Agrega un poco de margen inferior */
+}
+
+.opcion {
+    margin-bottom: 20px;
+    margin-left: 35px;
+    margin-top: 20px; /* Espacio entre cada opción */
+}
+
+.opcion-color {
+    width: 20px; /* Ancho del cuadrado de color */
+    height: 20px; /* Altura del cuadrado de color */
+    display: inline-block; /* Permite alinear verticalmente el texto con el cuadrado de color */
+    margin-right: 10px; /* Espacio entre el cuadrado de color y el texto */
+    border-radius: 3px; /* Borde redondeado del cuadrado de color */
+}
+
+canvas {
+    width: 30%;
+    height: auto;
+}

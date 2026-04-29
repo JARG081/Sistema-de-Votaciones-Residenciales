@@ -1,0 +1,182 @@
+body{
+    margin: 0;
+    pad: 0;
+
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ajusta el ancho del header */
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    z-index: 1;/* Coloca el header en la parte superior */
+}
+
+.logo {
+    margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+}
+
+.logo h1 {
+    margin: 0; /* Elimina el margen del h1 dentro del logo */
+}
+
+nav ul {
+    list-style: none; /* Elimina los estilos de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    padding: 0; /* Elimina el relleno de la lista */
+    display: flex; /* Cambia el diseño de la lista a flexbox */
+}
+
+nav ul li {
+    margin-left: 20px; /* Ajusta el margen izquierdo de cada ítem de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Elimina la subrayado de los enlaces */
+    color: #fff; 
+    margin-right: 30px;/* Cambia el color de texto de los enlaces */
+}
+
+
+/* Estilos para el contenedor principal */
+#contenedor-principal {
+    margin-top: 80px;
+    display: flex; /* Utilizar flexbox para organizar los elementos */
+    justify-content: space-between; /* Espacio uniforme entre los elementos */
+    align-items: flex-start; /* Alinear los elementos en la parte superior */
+    flex-direction: row;
+    padding: 10px;
+    padding-left: 10px; /* Organizar los elementos en fila */
+}
+
+/* Estilos para el section "graf-crear" */
+#graf-crear {
+    width: 45%; /* Ocupar el 48% del ancho del contenedor principal */
+    display: flex; /* Utilizar flexbox para organizar los elementos */
+    flex-direction: column; /* Organizar los elementos en columna */
+    align-items: center; /* Centrar los elementos horizontalmente */
+    margin-bottom: 20px;
+    justify-content: center;
+     /* Agregar un margen inferior para separarlo del título */
+}
+#graf-crear h2 {
+    text-align: center; /* Centrar el texto horizontalmente */
+}
+
+/* Estilos para el section "panel-control" */
+/* Estilos para los botones en el panel de control */
+/* Estilos para el panel de control */
+#panel-control {
+    margin-top: 35px;
+    padding-top: 15px;
+    width: 48%; /* Ocupar el 48% del ancho del contenedor principal */
+    display: flex; /* Utilizar flexbox para organizar los elementos */
+    flex-direction: column; /* Organizar los elementos en columna */
+    align-items: center;
+    background-color: rgb(194, 227, 231); /* Color de fondo */
+    border-radius: 15px; /* Centrar los elementos horizontalmente */
+}
+
+/* Estilos para el contenedor de los botones */
+#botones-panel {
+    display: flex; /* Utilizar flexbox para organizar los botones */
+    flex-direction: column; /* Organizar los botones en columna */
+    align-items: center;
+    margin-top: 45px; /* Centrar los botones horizontalmente */
+}
+
+/* Estilos para los botones */
+.boton-rojo {
+    background-color: #f55353; /* Color rojo */
+    color: #fff; /* Color de texto blanco */
+    padding: 10px 20px; /* Ajustar el padding para el espacio interno */
+    border: none; /* Eliminar el borde del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width: 180px; /* Espacio entre botones */
+}
+
+/* Estilos para el párrafo con el id "aviso-reg" */
+#aviso-reg {
+    color: red;
+    margin: 20px; /* Color rojo */
+}
+
+
+/* Estilos para el div contenedor de la gráfica */
+#contenedor-doughnut{
+    width: 85%; /* Ancho del 90% para ocupar casi todo el ancho del section */
+    margin-top: 20px;
+    background-color: rgb(194, 227, 231);
+    border-radius: 15px;
+    margin-bottom: 15px; /* Margen superior para separarlo de otros elementos */
+}
+/* Estilos para el div contenedor de crear encuesta */
+#crear-encuesta {
+
+    width: 85%; /* Ancho del 45% para ocupar solo la parte derecha */
+    margin-top: 30px; /* Margen superior para separarlo de la gráfica */
+    display: flex; /* Utilizar flexbox para organizar los elementos */
+    flex-direction: column; /* Organizar los elementos en columna */
+    align-items: center; /* Centrar los elementos horizontalmente */
+    text-align: center; 
+    background-color: rgb(194, 227, 231);
+    border-radius: 15px;/* Centrar el contenido (incluido el botón) horizontalmente */
+}
+
+/* Estilos para el canvas del gráfico */
+canvas.my-chart {
+    max-width: 450px; /* Máximo ancho permitido para el canvas */
+    max-height: 400px; /* Máximo alto permitido para el canvas */
+    width: 100%; /* Hacer que el canvas ocupe el 100% del ancho disponible */
+    height: auto;
+    margin-left: 18%;
+    margin-bottom: 45px; /* Ajustar automáticamente la altura para mantener la proporción */
+}
+
+/* Estilos para el título h1 */
+h1 {
+    text-align: center; /* Alinear el texto al centro */
+    text-transform: uppercase;
+    margin-top: 40px; /* Convertir el texto a mayúsculas */
+}
+
+/* Estilos para el botón "Crear" */
+#crear-encuesta button {
+    background-color: #808080; /* Color gris por defecto */
+    color: #fff; /* Color de texto blanco */
+    padding: 10px 20px; /* Ajustar el padding para el espacio interno */
+    border: none; /* Eliminar el borde del botón */
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+/* Cambiar el color del botón cuando se pasa el mouse sobre él */
+#crear-encuesta button:hover {
+    background-color: #79b479;
+        border-radius: 15px; /* Cambiar a verde al pasar el mouse */
+}
+
+/* Estilos para el nuevo div "ultimo-resultado" */
+#ultimo-resultado {
+    margin-top: 180px; /* Espacio superior para separarlo del contenido anterior */
+    padding: 20px; /* Espaciado interno para mejorar la legibilidad */
+    background-color: rgb(194, 227, 231); /* Color de fondo */
+    border-radius: 15px; /* Borde redondeado */
+}
+
+/* Estilos para los títulos dentro de "ultimo-resultado" */
+#ultimo-resultado h2, #ultimo-resultado h3 {
+    color: #333; /* Color de texto */
+}
+
+/* Estilos para el párrafo dentro de "ultimo-resultado" */
+#ultimo-resultado p {
+    color: #666; /* Color de texto */
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Administración - Appsembly</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Global CSS -->
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" th:href="@{/css/indexAdmin.css}" />
+</head>
+
+<body>
+    <!-- NAVBAR GLOBAL -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <h1 class="text-center py-4">TABLERO DE ADMINISTRACIÓN</h1>
+
+        <!-- ROW 1: Métricas y Nueva Encuesta -->
+        <div class="row">
+            <!-- Tarjeta Promedio de Asistencia -->
+            <div class="col-md-6 p-0">
+                <div class="average-card shadow rounded-3">
+                    <p class="text-center" style="color: white; font-size: 1.7rem;">PROMEDIO DE ASISTENCIA</p>
+                    <i class="bi bi-pie-chart-fill" aria-hidden="true" style="font-size: 100px; color: #fff;"></i>
+                    <!-- Validación de métricas: mostrar valor o placeholder -->
+                    <p class="text-center metric-value" style="font-size: 2rem;"
+                        th:if="${averageAttendance != null and averageAttendance > 0}">
+                        <span th:text="${averageAttendance}">0</span>%
+                    </p>
+                    <p class="text-center metric-no-data"
+                        th:unless="${averageAttendance != null and averageAttendance > 0}">
+                        Sin datos disponibles
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tarjeta de Nueva Encuesta -->
+            <div class="col-md-6 mb-1">
+                <div class="surveyCard d-flex flex-column align-items-center shadow rounded-3 p-4" id="surveyCard">
+                    <p class="text-center" style="color: #1E3A8A; font-size: 1.7rem;">Crea una nueva votación</p>
+                    <button type="button" class="showFormBtn btn btn-block mt-4 surveyBtn w-50">Crear</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ROW 2: Residentes Totales y CRUD -->
+        <div class="row">
+            <div class="col-md-6 p-0">
+                <div class="residents-card shadow rounded-3">
+                    <p class="text-center" style="color: white; font-size: 1.7rem;">RESIDENTES TOTALES</p>
+                    <i class="bi bi-people-fill" aria-hidden="true" style="font-size: 100px; color: #fff;"></i>
+                    <!-- Validación de métricas: mostrar valor o placeholder -->
+                    <p class="text-center metric-value" style="font-size: 2rem;"
+                        th:if="${totalResidents != null and totalResidents > 0}">
+                        <span th:text="${totalResidents}">0</span>
+                    </p>
+                    <p class="text-center metric-no-data" th:unless="${totalResidents != null and totalResidents > 0}">
+                        Sin datos disponibles
+                    </p>
+                </div>
+            </div>
+
+            <!-- Panel de Control CRUD -->
+            <div class="col-md-6">
+                <div class="d-flex flex-column align-items-center shadow-lg rounded-3 crud-container">
+                    <!-- Warning Badge -->
+                    <p class="rounded-3 p-1 mt-3 w-100 warning-badge">
+                        <i class="bi bi-exclamation-triangle-fill" aria-hidden="true" style="font-size: 1.35rem;"></i>
+                        Cualquier cambio que hagas aquí podría modificar los registros de la base de datos
+                    </p>
+
+                    <!-- Botones CRUD con colores semánticos -->
+                    <button type="button" class="btn btn-add-user">
+                        <i class="bi bi-person-plus-fill me-2"></i>Agregar usuario
+                    </button>
+                    <button type="button" class="btn btn-update-user">
+                        <i class="bi bi-pencil-square me-2"></i>Actualizar usuario
+                    </button>
+                    <button type="button" class="btn btn-delete-user">
+                        <i class="bi bi-trash-fill me-2"></i>Eliminar usuario
+                    </button>
+                    <button type="button" class="btn btn-permissions-user mb-4">
+                        <i class="bi bi-shield-lock-fill me-2"></i>Dar permisos a usuario
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FORMULARIO PARA LA ENCUESTA -->
+    <section style="margin-top: -70vh;">
+        <div class="surveyForm d-flex flex-column rounded-3 mx-auto align-items-end" style="width: 40vw;">
+            <button id="hideFormBtn" class="col-1 hideFormBtn btn mt-1 p-0 justify-content-end"
+                style="display: none;margin-right: 0.3vw;width:fix-content;">
+                <i class="bi bi-x-lg mx-auto" aria-hidden="true" style="font-size: 2rem; color: #000;"></i>
+            </button>
+            <form th:action="@{/survey/save}" th:object="${survey}" method="post"
+                class="w-75 surveyForm mx-auto" style="display: none;">
+                <h1 class="mx-auto">Nueva encuesta</h1>
+                <div class="mb-3 w-100 mx-auto">
+                    <label for="titulo">Título:</label>
+                    <input type="text" class="form-control W-25" id="titulo" name="title">
+                </div>
+                <div class="mb-3 w-100 mx-auto">
+                    <label for="pregunta">Pregunta:</label>
+                    <input type="text" class="form-control W-25" id="pregunta" name="question">
+                </div>
+                <div class="mb-3 w-100">
+                    <label for="respuestas">Respuestas:</label>
+                    <div class="respuestasContainer" id="respuestasContainer">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Respuesta 1" name="respuestas[]">
+                            <button class="btn btn-danger eliminarRespuesta" type="button">Eliminar</button>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-end">
+                        <button class="btn btn-success btnAgregarRespuesta" type="button" style="margin-right: 0.5vw;">
+                            Agregar Respuesta
+                        </button>
+                        <button type="submit" class="btn btn-primary">Guardar Encuesta</button>
+                    </div>
+                    <div class="mb-3 w-100">
+                        <label for="fechaExpiracion">Fecha de Expiración:</label>
+                        <input type="date" class="form-control" id="fechaExpiracion" name="expirationDate">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" th:src="@{/scripts/admin/main.js}"></script>
+</body>
+
+</html>

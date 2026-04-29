@@ -1,0 +1,123 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ajusta el ancho del header */
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    z-index: 1; /* Coloca el header en la parte superior */
+}
+
+.logo {
+    margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+}
+
+.logo h1 {
+    margin: 0; /* Elimina el margen del h1 dentro del logo */
+}
+
+nav ul {
+    list-style: none; /* Elimina los estilos de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    padding: 0; /* Elimina el relleno de la lista */
+    display: flex; /* Cambia el diseño de la lista a flexbox */
+}
+
+nav ul li {
+    margin-left: 20px; /* Ajusta el margen izquierdo de cada ítem de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Elimina la subrayado de los enlaces */
+    color: #fff; 
+    margin-right: 30px;/* Cambia el color de texto de los enlaces */
+}
+
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #f0f0f0;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.perfil {
+    text-align: center;
+    padding: 20px;
+}
+
+.perfil p {
+    margin: 5px 0;
+}
+
+.perfil-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 50px auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1d4ed8 0%, #0f172a 100%);
+    color: #fff;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.perfil-avatar i {
+    font-size: 5rem;
+    line-height: 1;
+}
+
+
+button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(180, 250, 250);
+    border-radius: 25px;
+}
+
+.descargar-actividad {
+    margin-top: auto;
+    width: 100%;
+}
+/* Agrega el siguiente estilo para alinear los detalles a la izquierda */
+#contenedor-votaciones .votacion {
+    background-color: #6d6969;
+    border: 1px solid #a7a6a6;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 17%;
+}
+
+#contenedor-votaciones .titulo {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#contenedor-votaciones .detalle {
+    color: #666666;
+    font-size: 14px;
+    margin-left: auto;
+}
+/* Estilos para los títulos h1 y h2 */
+#historial h1, #historial h2 {
+    text-align: center;
+}

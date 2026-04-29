@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="/css/adminPanel.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>APPSEMBLY</h1> 
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/inicio">Inicio</a></li>
+                <li><a href="/adminpanel">Panel de Administracion</a></li>
+                <li><a href="/pregunta">Pregunta</a></li>
+                <li><a href="/resultados">Resultados</a></li>
+                <li><a href="/historial">Historial</a></li>
+                <li><a href="/index">Cerrar Sesion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="contenedor-principal">
+        
+        <section id="graf-crear">
+            
+            <div id="contenedor-doughnut">
+                <h2>PARTICIPACION</h2>
+                <canvas class="my-chart"></canvas>
+            </div>
+            <div id="crear-encuesta">
+                <h2>CREAR ENCUESTA</h2>
+                <button id="boton-crear-encuesta">Crear</button>
+                <p>Cree una nueva encuesta</p>
+                <br><br>
+            </div>
+        </section>
+        <section id="panel-control">
+            <h2>PANEL CONTROL</h2>
+            <div id="botones-panel">
+                <button class="boton-rojo">Agregar usuario</button>
+                <button class="boton-rojo">Eliminar usuario</button>
+                <button class="boton-rojo">Actualizar usuario</button>
+                <button class="boton-rojo">Dar permisos a usuario</button>
+                <p id="aviso-reg">Nota: Tenga en cuenta que cada una de las modificaciones realizadas van a ir registradas en una base de datos.</p>
+            </div>
+            <div id="ultimo-resultado">
+                <h2>RESULTADO ULTIMA ENCUESTA</h2>
+
+                <h3 id="ultima-encuentas">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis, accusantium.</h3>
+
+                <p id="resultado">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, rerum!</p>
+            </div>
+        </section>
+                
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Elimina la llamada a Chart.js desde el CDN -->
+    <script src="/scripts/adminpanel.js"></script>
+    <!-- Mueve la llamada a Chart.js después de la definición de datos del gráfico -->
+    
+</body>
+</html>

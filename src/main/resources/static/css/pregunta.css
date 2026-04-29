@@ -1,0 +1,83 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #e2dfdf;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Ajusta el ancho del header */
+    position: fixed; /* Fija el header en la parte superior */
+    top: 0;
+    z-index: 1;/* Coloca el header en la parte superior */
+}
+
+.logo {
+    margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+}
+
+.logo h1 {
+    margin: 0; /* Elimina el margen del h1 dentro del logo */
+}
+
+nav ul {
+    list-style: none; /* Elimina los estilos de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+    padding: 0; /* Elimina el relleno de la lista */
+    display: flex; /* Cambia el diseño de la lista a flexbox */
+}
+
+nav ul li {
+    margin-left: 20px; /* Ajusta el margen izquierdo de cada ítem de la lista */
+}
+
+nav ul li a {
+    text-decoration: none; /* Elimina la subrayado de los enlaces */
+    color: #fff; 
+    margin-right: 30px;/* Cambia el color de texto de los enlaces */
+}
+
+#contenedor {
+    text-align: center;
+    margin-left: 12%;
+    margin-right: 12%;
+     /* Centra el contenido del contenedor */
+}
+
+#pregunta-container,#opciones {
+    margin-top: 80px;
+    margin-right: 5%;
+    margin-left: 5%; /* Espacio entre el título y las opciones */
+    display: flex; /* Cambia a diseño de fila */
+    flex-direction: column; /* Alinea las opciones en una sola columna */
+    align-items: center;
+    max-width: 85%;
+     /* Centra las opciones horizontalmente */
+}
+
+button {
+    margin: 10px; /* Agrega margen entre las opciones */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #9191af;
+    cursor: pointer;
+}
+
+button.selected {
+    background-color: #408840;
+}
+
+#confirmarButton {
+    margin-top: 20px;
+    background: yellow; /* Agrega margen superior para centrar el botón de confirmación */
+}

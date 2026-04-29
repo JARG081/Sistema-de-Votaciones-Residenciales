@@ -1,0 +1,432 @@
+/* ============================================
+   ADMIN DASHBOARD - ESQUEMA AZUL PROFESIONAL
+   ============================================ */
+
+/* Reset y Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+.container {
+    max-width: 1400px;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    color: var(--dark-blue);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* ============================================
+   METRIC CARDS (Tarjetas de Métricas)
+   ============================================ */
+.average-card,
+.residents-card {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 450px;
+    /* Igualado a la altura del panel CRUD */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.average-card:hover,
+.residents-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(74, 144, 226, 0.3);
+}
+
+.average-card p,
+.residents-card p {
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.average-card svg,
+.residents-card svg {
+    margin: 1rem 0;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Validación de métricas - estado sin datos */
+.metric-value {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.metric-no-data {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   SURVEY CARD (Tarjeta de Nueva Encuesta)
+   ============================================ */
+.surveyCard {
+    background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--light-blue) 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 450px;
+    /* Igualado a la altura del panel CRUD */
+}
+
+.surveyCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(96, 165, 250, 0.3);
+}
+
+.surveyCard p {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.surveyBtn {
+    background-color: var(--success-green);
+    border: none;
+    color: var(--white);
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+}
+
+.surveyBtn:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ============================================
+   CRUD BUTTONS (Botones Semánticos)
+   ============================================ */
+.crud-container {
+    background: linear-gradient(135deg, var(--dark-blue) 0%, #2563EB 100%);
+    padding: 2rem;
+    border-radius: 16px;
+    margin-top: 1.5rem;
+    min-height: 450px;
+    /* Altura consistente con las otras tarjetas */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.warning-badge {
+    background-color: var(--warning-orange);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Botón Agregar - Verde (Acción Positiva) */
+.btn-add-user {
+    background-color: var(--success-green);
+    border: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+}
+
+.btn-add-user:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Botón Actualizar - Azul (Acción Neutral) */
+.btn-update-user {
+    background-color: var(--accent-blue);
+    border: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+}
+
+.btn-update-user:hover {
+    background-color: #2563EB;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Botón Eliminar - Rojo (Acción Destructiva) */
+.btn-delete-user {
+    background-color: var(--danger-red);
+    border: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+}
+
+.btn-delete-user:hover {
+    background-color: #DC2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Botón Permisos - Naranja (Acción de Precaución) */
+.btn-permissions-user {
+    background-color: var(--warning-orange);
+    border: none;
+    color: var(--white);
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem 0;
+}
+
+.btn-permissions-user:hover {
+    background-color: #D97706;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* ============================================
+   SURVEY FORM
+   ============================================ */
+.surveyForm {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.surveyForm h1 {
+    color: var(--dark-blue);
+    margin-bottom: 1.5rem;
+}
+
+.surveyForm label {
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.surveyForm .form-control {
+    border: 2px solid var(--secondary-blue);
+    border-radius: 8px;
+    padding: 0.75rem;
+    transition: border-color 0.3s ease;
+}
+
+.surveyForm .form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.hideFormBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.hideFormBtn:hover {
+    transform: scale(1.1);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet (768px - 991px) */
+@media (max-width: 991px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .average-card,
+    .residents-card,
+    .surveyCard {
+        min-height: 240px;
+        padding: 1.5rem;
+    }
+
+    .crud-container {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+    .navbar {
+        padding: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .container {
+        padding: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Stack cards vertically */
+    .row {
+        margin: 0;
+    }
+
+    .col-md-6 {
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .average-card,
+    .residents-card,
+    .surveyCard {
+        min-height: 200px;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .average-card p,
+    .residents-card p,
+    .surveyCard p {
+        font-size: 1.3rem;
+    }
+
+    .average-card svg,
+    .residents-card svg {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* CRUD Buttons - Full width on mobile */
+    .crud-container {
+        padding: 1.25rem;
+        margin-top: 0;
+    }
+
+    .warning-badge {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .btn-add-user,
+    .btn-update-user,
+    .btn-delete-user,
+    .btn-permissions-user {
+        font-size: 1rem;
+        padding: 0.65rem 1.25rem;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Survey Form - Responsive */
+    .surveyForm {
+        width: 95vw !important;
+        padding: 1.5rem;
+    }
+
+    .surveyForm h1 {
+        font-size: 1.5rem;
+    }
+
+    .surveyBtn {
+        font-size: 1rem;
+        padding: 0.65rem 1.5rem;
+        width: 100%;
+    }
+}
+
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 479px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .average-card p,
+    .residents-card p,
+    .surveyCard p {
+        font-size: 1.1rem;
+    }
+
+    .average-card svg,
+    .residents-card svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .warning-badge {
+        font-size: 0.85rem;
+    }
+
+    .warning-badge svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rounded-3 {
+    border-radius: 16px !important;
+}

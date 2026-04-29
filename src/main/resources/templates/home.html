@@ -1,0 +1,25 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>¡Gracias por votar!</h1>
+    <p>Has votado por: <span id="opcionSeleccionada"></span></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Recupera la opción seleccionada del almacenamiento local
+            var opcionSeleccionada = localStorage.getItem("opcionSeleccionada");
+            console.log("Opción seleccionada recuperada del localStorage: " + opcionSeleccionada);
+            
+            // Muestra la opción seleccionada en la página
+            document.getElementById("opcionSeleccionada").textContent = opcionSeleccionada;
+
+        });
+    </script>
+</body>
+</html>
