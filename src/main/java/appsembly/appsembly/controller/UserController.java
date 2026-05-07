@@ -1,40 +1,40 @@
 package appsembly.appsembly.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import appsembly.appsembly.service.UserService;
 
-@Controller
+@RestController
 @RequestMapping("user")
 public class UserController {
     @Autowired
     private UserService userService;
 
     @GetMapping
-    public String indexUser() {
-        return "user/index";
+    public Map<String, Object> indexUser() {
+        return Map.of("success", true, "message", "Módulo de usuario activo en modo API.");
     }
 
     @GetMapping("/save")
-    public String showSaveForm() {
-        return "user/save";
+    public Map<String, Object> showSaveForm() {
+        return Map.of("success", true, "message", "Usa POST /user/save para crear usuarios.");
     }
 
     @PostMapping("/save")
-    public String saveUser(@RequestParam String email, @RequestParam String password,
-            @RequestParam String role, ModelMap model) {
+    public Map<String, Object> saveUser(@RequestParam String email, @RequestParam String password,
+            @RequestParam String role) {
         try {
             userService.register(null, null, email, password, password, role, null, true);
-            model.put("successful", "usuario creado correctamente!");
+            return Map.of("success", true, "message", "Usuario creado correctamente.");
         } catch (Exception e) {
-            model.put("error", e.getMessage());
+            return Map.of("success", false, "message", e.getMessage());
         }
-        return "user/save";
     }
 }

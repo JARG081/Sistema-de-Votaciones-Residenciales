@@ -1,16 +1,17 @@
 package appsembly.appsembly.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import appsembly.appsembly.service.UserService;
 
-@Controller
+@RestController
 @RequestMapping("/registration")
 public class RegisterController {
 
@@ -18,26 +19,21 @@ public class RegisterController {
     private UserService userService;
 
     @PostMapping
-    public String register(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email,
+    public Map<String, Object> register(@RequestParam String firstName, @RequestParam String lastName,
+            @RequestParam String email,
             @RequestParam String password, @RequestParam String passwordConfirm, @RequestParam String role,
-            ModelMap model) {
+            @RequestParam(required = false) Integer personalCode) {
         try {
-            userService.register(firstName, lastName, email, password, passwordConfirm, role, null, true);
-            model.put("successful", "usuario registrado correctamente!");
-            return "register";
+            userService.register(firstName, lastName, email, password, passwordConfirm, role, personalCode, true);
+            return Map.of("success", true, "message", "Usuario registrado correctamente.");
         } catch (Exception e) {
-            System.out.println("Estoy en el exception: ");
-
-            model.put("error", e.getMessage());
-            model.put("name", firstName);
-            model.put("email", email);
-            return "register";
+            return Map.of("success", false, "message", e.getMessage());
         }
     }
 
     @GetMapping
-    public String showRegistrationForm() {
-        return "register";
+    public Map<String, Object> registrationInfo() {
+        return Map.of("success", true, "message", "Usa POST /registration para registrar usuarios.");
     }
 
 }

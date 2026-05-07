@@ -1,5 +1,7 @@
 package appsembly.appsembly.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -28,6 +30,11 @@ public class UserApp {
     private Integer personalCode;
     private String firstName;
     private String lastName;
+    private String blockName;
+    private String towerName;
+    private String unitNumber;
+    private Boolean blocked;
+    @JsonIgnore
     private String password;
     @Column(unique = true)
     private String email;

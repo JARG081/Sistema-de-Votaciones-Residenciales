@@ -1,53 +1,29 @@
 package appsembly.appsembly.controller;
 
-import java.util.Collection;
+import java.util.Map;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import appsembly.appsembly.service.SurveyService;
+
+@RestController
 public class AppsemblyController {
-    @GetMapping({ "/", "/index" })
-    public String index(@RequestParam(required = false) String error, ModelMap model) {
-        if (error != null) {
-            model.addAttribute("error", "usuario o contraseña invalido");
-        }
-        return "index";
-    }
 
-    @GetMapping("/inicio")
-    public String inicio(Authentication authentication) {
-        if (authentication != null) {
-            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-            for (GrantedAuthority authority : authorities) {
-                if (authority.getAuthority().equals("ROLE_ADMIN")) {
-                    return "redirect:/admin/dashboard";
-                }
-            }
+    @Autowired
+    private SurveyService surveyService;
+
+    @PostMapping("/ingresar_codigo")
+    public Map<String, Object> ingresarCodigo(@RequestParam(required = false) String codigo) {
+        String normalizedCode = codigo == null ? "" : codigo.trim();
+        if (normalizedCode.isBlank()) {
+            return Map.of("success", false, "message", "Debes ingresar un código válido.");
         }
-        return "inicio";
-    }
-    @GetMapping("/adminpanel")
-    public String adminPanel() {
-        return "adminpanel";
-    }
-    
-    @GetMapping("/pregunta")
-    public String pregunta() {
-        return "pregunta";
-    }
-    
-    @GetMapping("/resultados")
-    public String resultados() {
-        return "resultados";
-    }
-    
-    @GetMapping("/historial")
-    public String historial() {
-        return "historial";
+
+        surveyService.validateVoteAccess(normalizedCode);
+
+        return Map.of("success", true, "message", "Código validado correctamente.", "redirectTo", "/pregunta", "residentCode", normalizedCode);
     }
 }
